@@ -4,6 +4,7 @@ import Layout from './components/Layout';
 import Dashboard from './pages/Dashboard';
 import RedZone from './pages/RedZone';
 import AllPatients from './pages/AllPatients';
+import AddPatient from './pages/AddPatient';
 import Analytics from './pages/Analytics';
 import Settings from './pages/Settings';
 import PatientDetails from './pages/PatientDetails';
@@ -16,6 +17,7 @@ const App: React.FC = () => {
           <Route index element={<Dashboard />} />
           <Route path="red-zone" element={<RedZone />} />
           <Route path="patients" element={<AllPatients />} />
+          <Route path="add-patient" element={<AddPatient />} />
           <Route path="patient/:id" element={<PatientDetails />} />
           <Route path="analytics" element={<Analytics />} />
           <Route path="settings" element={<Settings />} />

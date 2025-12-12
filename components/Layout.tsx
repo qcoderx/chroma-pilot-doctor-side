@@ -8,6 +8,7 @@ const Layout: React.FC = () => {
     { name: 'Dashboard', path: '/', icon: 'dashboard' },
     { name: 'Red Zone', path: '/red-zone', icon: 'dangerous' },
     { name: 'Patients', path: '/patients', icon: 'groups' },
+    { name: 'New Patient', path: '/add-patient', icon: 'person_add' },
     { name: 'Analytics', path: '/analytics', icon: 'pie_chart' },
     { name: 'Settings', path: '/settings', icon: 'settings' },
   ];
