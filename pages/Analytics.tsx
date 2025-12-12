@@ -23,7 +23,7 @@ const Analytics: React.FC = () => {
           <p className="text-xs text-white/50">Patients requiring dose adjustment</p>
         </div>
         <div className="flex flex-col gap-2 rounded-xl p-6 bg-white/5 border border-white/10 backdrop-blur-md">
-          <p className="text-white/80 text-base font-medium">Polygenic Risk Score > 90th %ile</p>
+          <p className="text-white/80 text-base font-medium">Polygenic Risk Score &gt; 90th %ile</p>
           <p className="font-mono text-bond-blue text-4xl font-bold">142</p>
         </div>
       </div>

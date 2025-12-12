@@ -84,14 +84,14 @@ const PatientDetails: React.FC = () => {
                          <div className="flex items-center gap-3 p-2 hover:bg-white/5 rounded transition-colors cursor-pointer">
                             <div className="size-8 rounded flex items-center justify-center bg-critical-red/20 text-critical-red font-bold text-xs">Path</div>
                             <div>
-                                <p className="text-sm font-bold text-white">KCNH2 <span className="text-white/50 font-normal">c.123G>A</span></p>
+                                <p className="text-sm font-bold text-white">KCNH2 <span className="text-white/50 font-normal">c.123G&gt;A</span></p>
                                 <p className="text-xs text-white/60">Long QT Syndrome Type 2</p>
                             </div>
                          </div>
                          <div className="flex items-center gap-3 p-2 hover:bg-white/5 rounded transition-colors cursor-pointer">
                             <div className="size-8 rounded flex items-center justify-center bg-yellow-400/20 text-yellow-400 font-bold text-xs">VUS</div>
                             <div>
-                                <p className="text-sm font-bold text-white">MYBPC3 <span className="text-white/50 font-normal">c.456C>T</span></p>
+                                <p className="text-sm font-bold text-white">MYBPC3 <span className="text-white/50 font-normal">c.456C&gt;T</span></p>
                                 <p className="text-xs text-white/60">Hypertrophic Cardiomyopathy</p>
                             </div>
                          </div>
