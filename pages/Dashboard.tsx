@@ -76,7 +76,7 @@ const Dashboard: React.FC = () => {
               </thead>
               <tbody className="divide-y divide-white/10 text-sm">
                 <tr className="hover:bg-white/5 transition-colors">
-                  <td className="py-4 pl-6 pr-3 font-medium text-white">Kenji Tanaka</td>
+                  <td className="py-4 pl-6 pr-3 font-medium text-white">Adebayo Ogundimu</td>
                   <td className="px-3 py-4 text-white/80">SpO2 Drop to 88%</td>
                   <td className="px-3 py-4 font-mono text-xs text-info">HIF1A Variation (Hypoxia sens.)</td>
                   <td className="px-3 py-4">
@@ -85,11 +85,11 @@ const Dashboard: React.FC = () => {
                     </span>
                   </td>
                   <td className="py-4 pl-3 pr-6 text-right">
-                     <Link to="/patient/kenji" className="text-bond-blue hover:text-white transition-colors">View Analysis</Link>
+                     <Link to="/patient/adebayo" className="text-bond-blue hover:text-white transition-colors">View Analysis</Link>
                   </td>
                 </tr>
                 <tr className="hover:bg-white/5 transition-colors">
-                  <td className="py-4 pl-6 pr-3 font-medium text-white">Elena Petrova</td>
+                  <td className="py-4 pl-6 pr-3 font-medium text-white">Chioma Nwankwo</td>
                   <td className="px-3 py-4 text-white/80">Arrhythmia Detected</td>
                   <td className="px-3 py-4 font-mono text-xs text-info">KCNH2 (Long QT Type 2)</td>
                   <td className="px-3 py-4">
@@ -98,11 +98,11 @@ const Dashboard: React.FC = () => {
                     </span>
                   </td>
                   <td className="py-4 pl-3 pr-6 text-right">
-                     <Link to="/patient/elena" className="text-bond-blue hover:text-white transition-colors">View Analysis</Link>
+                     <Link to="/patient/chioma" className="text-bond-blue hover:text-white transition-colors">View Analysis</Link>
                   </td>
                 </tr>
                 <tr className="hover:bg-white/5 transition-colors">
-                  <td className="py-4 pl-6 pr-3 font-medium text-white">Marcus Thorne</td>
+                  <td className="py-4 pl-6 pr-3 font-medium text-white">Emeka Okoro</td>
                   <td className="px-3 py-4 text-white/80">Prescription Request: Warfarin</td>
                   <td className="px-3 py-4 font-mono text-xs text-info">CYP2C9*3 / VKORC1</td>
                   <td className="px-3 py-4">
@@ -111,7 +111,7 @@ const Dashboard: React.FC = () => {
                     </span>
                   </td>
                   <td className="py-4 pl-3 pr-6 text-right">
-                     <Link to="/patient/marcus" className="text-bond-blue hover:text-white transition-colors">View Analysis</Link>
+                     <Link to="/patient/emeka" className="text-bond-blue hover:text-white transition-colors">View Analysis</Link>
                   </td>
                 </tr>
               </tbody>

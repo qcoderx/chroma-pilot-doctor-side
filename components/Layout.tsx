@@ -1,5 +1,6 @@
 import React from 'react';
 import { Outlet, NavLink, useLocation } from 'react-router-dom';
+import logoMedium from '../src/assets/images/logo-full.png';
 
 const Layout: React.FC = () => {
   const location = useLocation();
@@ -19,13 +20,13 @@ const Layout: React.FC = () => {
       <aside className="hidden md:flex w-64 flex-col justify-between border-r border-white/10 bg-black/20 p-4 backdrop-blur-md h-screen sticky top-0">
         <div className="flex flex-col gap-8">
           {/* Brand */}
-          <div className="flex items-center gap-3 px-3 py-2">
-             <div className="size-8 text-primary">
-                <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M24 4C25.7818 14.2173 33.7827 22.2182 44 24C33.7827 25.7818 25.7818 33.7827 24 44C22.2182 33.7827 14.2173 25.7818 4 24C14.2173 22.2182 22.2182 14.2173 24 4Z" fill="currentColor"></path>
-                </svg>
-              </div>
-            <h2 className="text-lg font-bold uppercase tracking-widest font-display">Chroma-Pilot</h2>
+          <div className="flex items-center px-3 py-2">
+            <img
+              src={logoMedium}
+              alt="Chroma-Pilot Logo"
+              className="h-24 w-auto object-contain"
+              draggable={false}
+            />
           </div>
 
           {/* Navigation */}
@@ -74,13 +75,13 @@ const Layout: React.FC = () => {
       <div className="flex-1 flex flex-col h-screen overflow-hidden">
         {/* Mobile Header */}
         <header className="md:hidden flex items-center justify-between p-4 bg-[#0B0A12] border-b border-white/10 z-50">
-           <div className="flex items-center gap-2">
-             <div className="size-6 text-primary">
-                <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M24 4C25.7818 14.2173 33.7827 22.2182 44 24C33.7827 25.7818 25.7818 33.7827 24 44C22.2182 33.7827 14.2173 25.7818 4 24C14.2173 22.2182 22.2182 14.2173 24 4Z" fill="currentColor"></path>
-                </svg>
-              </div>
-             <span className="font-display font-bold">Chroma-Pilot</span>
+           <div className="flex items-center">
+             <img
+               src={logoMedium}
+               alt="Chroma-Pilot Logo"
+               className="h-20 w-auto object-contain"
+               draggable={false}
+             />
            </div>
            {/* Mobile Menu Placeholder - In a real app, this would toggle a mobile menu */}
            <span className="material-symbols-outlined">menu</span>
