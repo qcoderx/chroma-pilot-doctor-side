@@ -49,7 +49,7 @@ export const HeroSection: React.FC = () => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-600 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
               </span>
-              <span className="font-mono">New: Variant-Bot v2.0 Available</span>
+              <span className="font-mono">New: BioReason v3.1 - Causal Logic Engine</span>
             </motion.div>
             
             {/* Headline */}
@@ -61,9 +61,9 @@ export const HeroSection: React.FC = () => {
             >
               <TextType
                 text={[
-                  "Deciphering Genomes. Saving Lives.",
-                  "Precision Medicine. Powered by AI.",
-                  "From DNA to Diagnosis. In Minutes."
+                  "Biology is deterministic. Healthcare shouldn't be.",
+                  "From read-only biology to read-write medicine.",
+                  "Clinical decision-support for human biology."
                 ]}
                 typingSpeed={80}
                 pauseDuration={3000}
@@ -88,7 +88,7 @@ export const HeroSection: React.FC = () => {
                 duration={1200}
                 className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed font-body"
               >
-                The AI-powered clinical dashboard for precision medicine. Move from raw sequencing data to actionable diagnosis in minutes, not weeks.
+                A clinical decision-support operating system that turns static genomic data into live, actionable insights. Assists doctors, filters noise, surfaces risks - never replaces clinical judgment.
               </ScrambledText>
             </motion.div>
             
@@ -103,10 +103,10 @@ export const HeroSection: React.FC = () => {
                 color="#2563eb" 
                 speed="4s" 
                 className="hover:scale-105 transition-transform"
-                onClick={handleStartPilot}
-                aria-label="Start pilot program and access dashboard"
+                onClick={() => navigate('/login')}
+                aria-label="Access clinical dashboard"
               >
-                Start Pilot Program
+                Access Dashboard
               </StarBorder>
               <StarBorder 
                 color="#06b6d4" 
@@ -144,11 +144,11 @@ export const HeroSection: React.FC = () => {
               </div>
               <p className="font-body font-medium">
                 Trusted by <SimpleCounter 
-                  value={200}
+                  value={50}
                   fontSize={14}
                   textColor="inherit"
                   fontWeight={500}
-                />+ Research Hospitals
+                />+ African Research Hospitals
               </p>
             </motion.div>
           </motion.div>

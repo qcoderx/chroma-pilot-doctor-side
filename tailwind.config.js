@@ -6,18 +6,47 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        // Exact HTML color scheme
+        primary: "#137fec",
+        "background-light": "#f6f7f8",
+        "surface-light": "#ffffff",
+        "text-main-light": "#0f172a",
+        "text-sub-light": "#64748b",
+        "border-light": "#e2e8f0",
+        
+        // Tailwind compatibility
+        border: "#e2e8f0",
+        input: "#e2e8f0",
+        ring: "#137fec",
+        background: "#f6f7f8",
+        foreground: "#0f172a",
+        muted: {
+          DEFAULT: "#f1f5f9",
+          foreground: "#64748b",
+        },
+        card: {
+          DEFAULT: "#ffffff",
+          foreground: "#0f172a",
+        },
+      },
+      fontFamily: {
+        sans: ["Inter", "system-ui", "sans-serif"],
+        mono: ["JetBrains Mono", "Fira Code", "monospace"],
+        display: ["Inter", "sans-serif"],
+      },
       animation: {
-        'star-movement-bottom': 'star-movement-bottom linear infinite alternate',
-        'star-movement-top': 'star-movement-top linear infinite alternate',
+        "fade-in": "fadeIn 0.3s ease-in-out",
+        "slide-up": "slideUp 0.3s ease-out",
       },
       keyframes: {
-        'star-movement-bottom': {
-          '0%': { transform: 'translate(0%, 0%)', opacity: '1' },
-          '100%': { transform: 'translate(-100%, 0%)', opacity: '0' },
+        fadeIn: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
         },
-        'star-movement-top': {
-          '0%': { transform: 'translate(0%, 0%)', opacity: '1' },
-          '100%': { transform: 'translate(100%, 0%)', opacity: '0' },
+        slideUp: {
+          "0%": { transform: "translateY(10px)", opacity: "0" },
+          "100%": { transform: "translateY(0)", opacity: "1" },
         },
       },
     },

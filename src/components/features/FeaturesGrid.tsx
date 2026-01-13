@@ -36,7 +36,7 @@ export const FeaturesGrid: React.FC = () => {
             className="max-w-2xl"
           >
             <h2 className="text-3xl font-bold text-slate-900 dark:text-white font-display mb-6">
-              Built for modern precision medicine
+              Clinical Use Cases
             </h2>
             <div className="mb-8">
               <ScrambledText 
@@ -44,7 +44,7 @@ export const FeaturesGrid: React.FC = () => {
                 duration={1000}
                 className="text-lg text-slate-600 dark:text-slate-400 font-body"
               >
-                Everything you need to manage genomic workflows at scale. Our comprehensive platform integrates seamlessly with your existing infrastructure.
+                Real-world applications where Chroma-Pilot assists clinicians in making safer, more informed decisions. All outputs are recommendations and alerts, not diagnoses.
               </ScrambledText>
             </div>
             

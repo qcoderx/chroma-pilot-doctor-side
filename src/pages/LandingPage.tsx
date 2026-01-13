@@ -3,11 +3,13 @@ import { Toaster } from 'react-hot-toast';
 import { Navigation } from '../components/features/Navigation';
 import { HeroSection } from '../components/features/HeroSection';
 import { StatsBar } from '../components/features/StatsBar';
+import { ProblemStatement } from '../components/features/ProblemStatement';
 import { WorkflowSection } from '../components/features/WorkflowSection';
 import { FeaturesGrid } from '../components/features/FeaturesGrid';
 import { AgentsSection } from '../components/features/AgentsSection';
 import { TestimonialsSection } from '../components/features/TestimonialsSection';
 import { CTASection } from '../components/features/CTASection';
+import { DisclaimerSection } from '../components/features/DisclaimerSection';
 import { Footer } from '../components/features/Footer';
 import ScrambledText from '../components/ui/ScrambledText';
 
@@ -19,30 +21,13 @@ const LandingPage: React.FC = () => {
       <main>
         <HeroSection />
         <StatsBar />
-        
-        {/* Problem Statement */}
-        <section className="py-20 bg-slate-50 dark:bg-slate-900">
-          <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
-              The Genomic Data Bottleneck
-            </h2>
-            <div className="mt-4">
-              <ScrambledText 
-                radius={120}
-                duration={1000}
-                className="text-lg text-slate-600 dark:text-slate-300 font-body"
-              >
-                Hospitals are drowning in unanalyzed sequencing data. Manual interpretation is slow, error-prone, and unscalable. Chroma-Pilot bridges the gap between raw FASTQ data and life-saving clinical insights.
-              </ScrambledText>
-            </div>
-          </div>
-        </section>
-        
+        <ProblemStatement />
         <WorkflowSection />
         <FeaturesGrid />
         <AgentsSection />
         <TestimonialsSection />
         <CTASection />
+        <DisclaimerSection />
       </main>
       
       <Footer />

@@ -27,9 +27,8 @@ export const StatsBar: React.FC = () => {
                       fontWeight={900}
                     />
                     {stat.value.includes('%') && '%'}
-                    {stat.value.includes('k') && 'k+'}
-                    {stat.value.includes('m') && 'm'}
-                    {stat.value.includes('+') && !stat.value.includes('k') && '+'}
+                    {stat.value.includes('+') && '+'}
+                    {stat.value.includes('$') && ''}
                   </>
                 ) : (
                   stat.value

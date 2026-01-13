@@ -1,124 +1,212 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { Toaster } from 'react-hot-toast';
+import { Search, Bell, User, ChevronDown, Dna } from 'lucide-react';
+import { MetricsGrid } from '../src/components/features/MetricsGrid';
+import { Button } from '../src/components/ui/Button';
+import { Card, CardContent, CardHeader, CardTitle } from '../src/components/ui/Card';
+import { Badge } from '../src/components/ui/Badge';
+import { useDashboardData } from '../src/api/useDashboard';
+import { useDashboardStore } from '../src/store/dashboardStore';
+
+const DashboardSkeleton = () => (
+  <div className="space-y-6">
+    <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      {[...Array(4)].map((_, i) => (
+        <div key={i} className="h-32 bg-muted animate-pulse rounded-lg" />
+      ))}
+    </div>
+    <div className="grid gap-6 lg:grid-cols-3">
+      <div className="lg:col-span-2 h-96 bg-muted animate-pulse rounded-lg" />
+      <div className="h-96 bg-muted animate-pulse rounded-lg" />
+    </div>
+  </div>
+);
 
 const Dashboard: React.FC = () => {
-  return (
-    <div className="flex flex-col gap-6 font-display max-w-7xl mx-auto w-full">
-      {/* Header */}
-      <header className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-white/10 pb-6">
-        <div>
-           <h1 className="tracking-widest text-3xl font-bold uppercase text-white">GENOMIC MISSION CONTROL</h1>
-           <p className="text-white/50 text-sm mt-1">Integrated Genomic & Biometric Clinical Support System</p>
-        </div>
-        
-        <div className="flex items-center gap-4 w-full md:w-auto">
-          <div className="relative flex-1 md:w-64">
-            <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-white/50">search</span>
-            <input 
-              className="w-full bg-white/5 border border-white/20 rounded-lg py-2 pl-10 pr-4 text-white placeholder:text-white/50 focus:outline-none focus:border-primary/50" 
-              placeholder="Search Patients or Variants..." 
-            />
+  const { data, isLoading, error } = useDashboardData();
+  const { searchQuery, setSearchQuery } = useDashboardStore();
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-background">
+        <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+          <div className="container flex h-14 items-center">
+            <div className="flex items-center space-x-2">
+              <Dna className="h-6 w-6 text-primary" />
+              <span className="font-bold">Chroma-Pilot</span>
+            </div>
           </div>
-          <button className="flex items-center justify-center size-10 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 transition-colors">
-            <span className="material-symbols-outlined text-white/80">notifications</span>
-          </button>
+        </header>
+        <main className="container mx-auto py-6">
+          <DashboardSkeleton />
+        </main>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <Card className="w-full max-w-md">
+          <CardHeader>
+            <CardTitle className="text-clinical-critical">Error Loading Dashboard</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-muted-foreground mb-4">
+              Unable to load dashboard data. Please try again.
+            </p>
+            <Button onClick={() => window.location.reload()}>
+              Retry
+            </Button>
+          </CardContent>
+        </Card>
+      </div>
+    );
+  }
+
+  if (!data) return null;
+
+  return (
+    <div className="min-h-screen bg-background">
+      {/* Header */}
+      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <div className="container flex h-14 items-center justify-between">
+          <div className="flex items-center space-x-2">
+            <Dna className="h-6 w-6 text-primary" />
+            <span className="font-bold text-lg">Chroma-Pilot</span>
+          </div>
+          
+          <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
+            <a href="#" className="text-primary">Dashboard</a>
+            <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Patients</a>
+            <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Analytics</a>
+            <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Reports</a>
+          </nav>
+          
+          <div className="flex items-center space-x-4">
+            <div className="relative hidden sm:block">
+              <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+              <input
+                className="flex h-9 w-64 rounded-md border border-input bg-background px-8 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                placeholder="Search patients..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+            </div>
+            
+            <Button variant="ghost" size="icon">
+              <Bell className="h-4 w-4" />
+            </Button>
+            
+            <div className="flex items-center space-x-2">
+              <div className="hidden sm:block text-right">
+                <p className="text-sm font-medium">Dr. Ade</p>
+                <p className="text-xs text-muted-foreground">Genomic Specialist</p>
+              </div>
+              <Button variant="ghost" size="icon">
+                <User className="h-4 w-4" />
+              </Button>
+              <ChevronDown className="h-4 w-4 text-muted-foreground" />
+            </div>
+          </div>
         </div>
       </header>
 
-      {/* KPI Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="frosted-glass rounded-lg p-6 hover:bg-white/5 transition-all cursor-pointer group">
-          <p className="text-sm font-medium uppercase tracking-wider text-white/70">Active Bio-Genomic Collisions</p>
-          <div className="flex items-end gap-3 mt-2">
-            <p className="text-4xl font-bold tracking-tight text-critical-red" style={{ textShadow: "0 0 15px rgba(255, 59, 48, 0.5)" }}>12</p>
-            <p className="text-sm font-medium text-green-400 mb-1 flex items-center">
-              <span className="material-symbols-outlined text-sm mr-1">trending_up</span>
-              +2 detections
-            </p>
-          </div>
-        </div>
+      {/* Main Content */}
+      <main className="container mx-auto py-6 space-y-6">
+        {/* Page Header */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          <h1 className="text-3xl font-bold tracking-tight">Clinical Dashboard</h1>
+          <p className="text-muted-foreground">
+            Welcome back, Dr. Ade. Here's your genomic medicine overview.
+          </p>
+        </motion.div>
 
-        <div className="frosted-glass rounded-lg p-6 hover:bg-white/5 transition-all">
-          <p className="text-sm font-medium uppercase tracking-wider text-white/70">Genomes Sequenced</p>
-          <div className="flex items-end gap-3 mt-2">
-            <p className="text-4xl font-bold tracking-tight text-white">248</p>
-            <p className="text-sm font-medium text-bond-blue mb-1">100% Coverage</p>
-          </div>
-        </div>
+        {/* Metrics Grid */}
+        <MetricsGrid metrics={data.metrics} />
 
-        <div className="frosted-glass rounded-lg p-6 hover:bg-white/5 transition-all">
-          <p className="text-sm font-medium uppercase tracking-wider text-white/70">Clinical Actions Generated</p>
-          <div className="flex items-end gap-3 mt-2">
-            <p className="text-4xl font-bold tracking-tight text-helix-violet">84</p>
-            <p className="text-sm font-medium text-white/50 mb-1">This week</p>
-          </div>
-        </div>
-      </div>
+        {/* Dashboard Content Grid */}
+        <div className="grid gap-6 lg:grid-cols-3">
+          {/* Recent Patients */}
+          <Card className="lg:col-span-2">
+            <CardHeader>
+              <CardTitle>Recent Patients</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                {data.recentPatients.slice(0, 5).map((patient) => (
+                  <motion.div
+                    key={patient.id}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    className="flex items-center justify-between p-3 rounded-lg border hover:bg-muted/50 transition-colors cursor-pointer"
+                  >
+                    <div className="flex items-center space-x-3">
+                      <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
+                        <span className="text-sm font-mono font-semibold text-primary">
+                          {patient.initials}
+                        </span>
+                      </div>
+                      <div>
+                        <p className="font-medium">{patient.name}</p>
+                        <p className="text-sm text-muted-foreground font-mono">{patient.patientNumber}</p>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <Badge 
+                        variant={patient.riskLevel === 'Critical' ? 'critical' : 
+                                patient.riskLevel === 'Moderate' ? 'warning' : 'success'}
+                      >
+                        {patient.riskLevel}
+                      </Badge>
+                      <p className="text-xs text-muted-foreground mt-1">{patient.condition}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
 
-      {/* Recent Alerts Table */}
-      <div className="mt-4">
-        <div className="flex items-center justify-between mb-4">
-            <h2 className="text-xl font-bold leading-tight tracking-wider text-white uppercase">Priority Decision Queue</h2>
-            <Link to="/red-zone" className="text-sm text-primary hover:text-white transition-colors">View All</Link>
+          {/* Active Alerts */}
+          <Card>
+            <CardHeader>
+              <CardTitle>Active Alerts</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-3">
+                {data.activeAlerts.slice(0, 4).map((alert) => (
+                  <motion.div
+                    key={alert.id}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    className="p-3 rounded-lg border-l-4 border-l-clinical-critical bg-clinical-critical/5 hover:bg-clinical-critical/10 transition-colors cursor-pointer"
+                  >
+                    <div className="flex items-start justify-between">
+                      <div className="flex-1">
+                        <p className="font-medium text-sm">{alert.title}</p>
+                        <p className="text-xs text-muted-foreground mt-1">{alert.patientName}</p>
+                        <p className="text-xs text-muted-foreground">
+                          {alert.timestamp.toLocaleTimeString()}
+                        </p>
+                      </div>
+                      <Badge variant={alert.severity === 'Critical' ? 'critical' : 'warning'} className="text-xs">
+                        {alert.severity}
+                      </Badge>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
         </div>
-        
-        <div className="frosted-glass rounded-lg overflow-hidden border border-white/10">
-          <div className="overflow-x-auto">
-            <table className="min-w-full divide-y divide-white/10 text-left">
-              <thead className="bg-white/5">
-                <tr>
-                  <th className="py-4 pl-6 pr-3 text-sm font-semibold text-white/60 uppercase tracking-wider">Patient</th>
-                  <th className="px-3 py-4 text-sm font-semibold text-white/60 uppercase tracking-wider">Detected Trigger</th>
-                  <th className="px-3 py-4 text-sm font-semibold text-white/60 uppercase tracking-wider">Genomic Context</th>
-                  <th className="px-3 py-4 text-sm font-semibold text-white/60 uppercase tracking-wider">Decision Support</th>
-                  <th className="relative py-3.5 pl-3 pr-6"><span className="sr-only">View</span></th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-white/10 text-sm">
-                <tr className="hover:bg-white/5 transition-colors">
-                  <td className="py-4 pl-6 pr-3 font-medium text-white">Adebayo Ogundimu</td>
-                  <td className="px-3 py-4 text-white/80">SpO2 Drop to 88%</td>
-                  <td className="px-3 py-4 font-mono text-xs text-info">HIF1A Variation (Hypoxia sens.)</td>
-                  <td className="px-3 py-4">
-                    <span className="inline-flex items-center rounded-full bg-critical-red/20 px-2 py-1 text-xs font-medium text-critical-red ring-1 ring-inset ring-critical-red/30">
-                      Immediate Oxygen + Gene Review
-                    </span>
-                  </td>
-                  <td className="py-4 pl-3 pr-6 text-right">
-                     <Link to="/patient/adebayo" className="text-bond-blue hover:text-white transition-colors">View Analysis</Link>
-                  </td>
-                </tr>
-                <tr className="hover:bg-white/5 transition-colors">
-                  <td className="py-4 pl-6 pr-3 font-medium text-white">Chioma Nwankwo</td>
-                  <td className="px-3 py-4 text-white/80">Arrhythmia Detected</td>
-                  <td className="px-3 py-4 font-mono text-xs text-info">KCNH2 (Long QT Type 2)</td>
-                  <td className="px-3 py-4">
-                    <span className="inline-flex items-center rounded-full bg-critical-red/20 px-2 py-1 text-xs font-medium text-critical-red ring-1 ring-inset ring-critical-red/30">
-                      Contraindication Alert: Zofran
-                    </span>
-                  </td>
-                  <td className="py-4 pl-3 pr-6 text-right">
-                     <Link to="/patient/chioma" className="text-bond-blue hover:text-white transition-colors">View Analysis</Link>
-                  </td>
-                </tr>
-                <tr className="hover:bg-white/5 transition-colors">
-                  <td className="py-4 pl-6 pr-3 font-medium text-white">Emeka Okoro</td>
-                  <td className="px-3 py-4 text-white/80">Prescription Request: Warfarin</td>
-                  <td className="px-3 py-4 font-mono text-xs text-info">CYP2C9*3 / VKORC1</td>
-                  <td className="px-3 py-4">
-                    <span className="inline-flex items-center rounded-full bg-orange-400/20 px-2 py-1 text-xs font-medium text-orange-400 ring-1 ring-inset ring-orange-400/30">
-                      Dosage Adjustment Req.
-                    </span>
-                  </td>
-                  <td className="py-4 pl-3 pr-6 text-right">
-                     <Link to="/patient/emeka" className="text-bond-blue hover:text-white transition-colors">View Analysis</Link>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
+      </main>
+
+      <Toaster position="top-right" />
     </div>
   );
 };

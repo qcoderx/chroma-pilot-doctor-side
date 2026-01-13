@@ -7,30 +7,30 @@ export const navigationItems: NavigationItem[] = [
 ];
 
 export const statsData: StatItem[] = [
-  { label: 'Sequences Processed', value: '50k+', numericValue: 50000 },
-  { label: 'Variant Accuracy', value: '99.9%', numericValue: 99.9 },
-  { label: 'Analysis Time', value: '15m', numericValue: 15 },
-  { label: 'Hospitals Using', value: '200+', numericValue: 200 }
+  { label: 'Exabytes of Bio Data Generated Annually', value: '40+', numericValue: 40 },
+  { label: 'Genomic Data Remains Dark/Unused', value: '99%', numericValue: 99 },
+  { label: 'Sequencing Cost Reduction', value: '$200', numericValue: 200 },
+  { label: 'Nigerian Doctors Left in 2024', value: '4000+', numericValue: 4000 }
 ];
 
 export const workflowSteps: WorkflowStep[] = [
   {
     id: 1,
-    icon: 'cloud_upload',
-    title: '1. Secure Upload',
-    description: 'Upload FASTQ/VCF files directly to our HIPAA-compliant cloud via API or drag-and-drop interface.'
+    icon: 'upload_file',
+    title: '1. Doctor-Led Intake',
+    description: 'Upload VCF files to secure dashboard. Genome parsed in 2-3 minutes, variants inserted into database without storing raw data.'
   },
   {
     id: 2,
-    icon: 'psychology',
-    title: '2. AI Analysis',
-    description: 'Our ensemble of AI agents identifies variants, checks databases (ClinVar, OMIM), and scores pathogenicity.'
+    icon: 'smartphone',
+    title: '2. Patient Connection',
+    description: 'Send secure magic link via WhatsApp/SMS. Patient completes 30-question phenotype onboarding to build Digital Twin.'
   },
   {
     id: 3,
-    icon: 'assignment_turned_in',
-    title: '3. Clinical Report',
-    description: 'Receive a generated, customizable PDF report ready for sign-off by a medical geneticist.'
+    icon: 'monitor_heart',
+    title: '3. Read-Write Monitoring',
+    description: 'Wearables stream biometrics. System alerts clinicians before biological collisions occur, enabling preventive intervention.'
   }
 ];
 
@@ -39,84 +39,92 @@ export const featuresData: FeatureCard[] = [
     id: 'pharmacogenomics',
     icon: 'medication',
     title: 'Pharmacogenomics',
-    description: 'Automatically flag drug-gene interactions to prevent adverse reactions before prescribing.',
+    description: 'Flags drug-gene interactions like CYP2D6 + Codeine. Reduces ADRs - the 4th leading cause of death globally.',
     color: 'blue'
   },
   {
-    id: 'rare-disease',
-    icon: 'coronavirus',
-    title: 'Rare Disease Detection',
-    description: 'Identify ultra-rare variants using our proprietary phenotype-genotype matching engine.',
+    id: 'disease-risk',
+    icon: 'health_and_safety',
+    title: 'Disease Risk Assessment',
+    description: 'Polygenic risk scoring for conditions like APOL1-associated cardiomyopathies common in African populations.',
     color: 'purple'
   },
   {
-    id: 'population-health',
-    icon: 'groups',
-    title: 'Population Health',
-    description: 'Aggregate anonymous data to track regional variant frequencies and outbreaks.',
+    id: 'rare-disease',
+    icon: 'search',
+    title: 'Rare Disease Diagnosis',
+    description: 'Shortens diagnostic odysseys. Example: SCN1A variants and Dravet Syndrome with contraindicated drug warnings.',
     color: 'emerald'
   },
   {
-    id: 'ehr-integration',
-    icon: 'integration_instructions',
-    title: 'EHR Integration',
-    description: 'Seamless two-way sync with Epic, Cerner, and other major Electronic Health Records.',
+    id: 'oncology-support',
+    icon: 'biotech',
+    title: 'Oncology Support',
+    description: 'Tumor VCF analysis identifies HRD and "BRCAness" to support targeted therapies like PARP inhibitors.',
     color: 'amber'
   },
   {
-    id: 'role-access',
-    icon: 'lock_person',
-    title: 'Role-Based Access',
-    description: 'Granular permission controls for lab technicians, bioinformaticians, and clinicians.',
+    id: 'prognosis-modeling',
+    icon: 'trending_up',
+    title: 'Prognosis Modeling',
+    description: 'Predicts disease progression speed by combining genetics with lifestyle factors to guide follow-up intensity.',
     color: 'rose'
   },
   {
-    id: 'audit-trails',
-    icon: 'history_edu',
-    title: 'Audit Trails',
-    description: 'Full traceability of every file access, analysis run, and report generation event.',
+    id: 'biological-gps',
+    icon: 'gps_fixed',
+    title: 'Biological GPS',
+    description: 'Continuously watches biological pathways, alerting clinicians before dangerous collisions occur.',
     color: 'cyan'
   }
 ];
 
 export const agentsData: Agent[] = [
   {
-    id: 'variant-bot',
-    name: 'Variant-Bot',
-    version: 'v2.4.1',
-    role: 'PRIMARY ANALYST',
-    description: 'Responsible for initial SNV and Indel calling. Cross-references 50+ global databases to assign pathogenicity scores (ACMG guidelines).',
-    accuracy: 99.8,
-    icon: 'biotech'
+    id: 'alphaMissense',
+    name: 'AlphaMissense',
+    version: 'v2.0',
+    role: 'THE PHYSICIST',
+    description: 'Uses protein physics, not population frequency. Folds proteins in 3D to see if mutations break structure. Eliminates racial bias inherent in Eurocentric datasets.',
+    accuracy: 90.7,
+    icon: 'science'
   },
   {
-    id: 'pheno-scout',
-    name: 'Pheno-Scout',
-    version: 'v1.9.0',
-    role: 'CORRELATION ENGINE',
-    description: 'Reads unstructured clinical notes from the EHR to match patient symptoms with genetic findings, reducing VUS rates.',
+    id: 'gene42',
+    name: 'Gene42',
+    version: 'v1.5',
+    role: 'THE HISTORIAN',
+    description: 'Reads long DNA context and haplotypes. Understands complex African ancestry patterns. Provides genetic context standard models miss.',
     accuracy: 94.2,
-    icon: 'page_info'
+    icon: 'history_edu'
   },
   {
-    id: 'report-gen',
-    name: 'Report-Gen',
-    version: 'v3.0.2',
-    role: 'SYNTHESIZER',
-    description: 'Synthesizes findings into natural language summaries for clinicians and patients, highlighting actionable next steps.',
-    accuracy: 99.5,
-    icon: 'description'
+    id: 'bioReason',
+    name: 'BioReason',
+    version: 'v3.1',
+    role: 'THE DETECTIVE',
+    description: 'Applies causal logic and step-by-step reasoning. Connects broken proteins to drug response and disease mechanisms. Explains why mutations matter clinically.',
+    accuracy: 96.8,
+    icon: 'psychology'
   }
 ];
 
 export const testimonialsData: Testimonial[] = [
   {
-    id: 'adunni-okafor',
-    quote: 'Chroma-Pilot reduced our variant interpretation time by 70%. It\'s not just a tool; it\'s like adding a dozen geneticists to our team overnight.',
+    id: 'dr-adunni-okafor',
+    quote: 'In Lagos, 10.7% of our admissions are ADR-related. Chroma-Pilot helps us prevent these tragedies by flagging drug-gene interactions before we prescribe. It\'s not replacing our judgment - it\'s amplifying our ability to see what matters.',
     author: 'Dr. Adunni Okafor',
     title: 'Chief Medical Officer',
     company: 'Lagos University Teaching Hospital',
-    avatar: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCoPeloLwGLkugU9zpqt6psssOvKqpMg4n3_7ckSPQ6TG3_1lyB95li8G31oSBr9Glya2LJuQr_IW1rg0C-YpveYtmScqRFpKxBJnGyqelJDDj4RXUDYWmriD6WSOdL-EvcbaLTNyPJisqUXma5Oj3KPJYAmvfBHxFG3D1mU3qGRQXbhrqichgjKpVmhyjoHtrEBtEqPbQTmejY2CDPAiIt7cp3HALuWRn6F6GXQTe2JoVt0zFT_ArQP6sUdqoVz1gI5O0PRWuIhGs'
+    avatar: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=400&fit=crop&crop=face'
+  },
+  {
+    id: 'prof-kwame-asante',
+    quote: 'We\'re drowning in genomic data but starving for insight. Chroma-Pilot turns our VCF files from static reports into living, actionable intelligence. The Trinity approach works brilliantly for African genomic variants.',
+    author: 'Prof. Kwame Asante',
+    title: 'Director of Medical Genetics',
+    company: 'University of Ghana Medical Centre',
+    avatar: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=400&fit=crop&crop=face'
   }
 ];
 

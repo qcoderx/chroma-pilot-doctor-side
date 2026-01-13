@@ -4,15 +4,15 @@ import SimpleCounter from '../ui/SimpleCounter';
 import { agentsData } from '../../mocks/landingData';
 
 const roleColors = {
-  'PRIMARY ANALYST': 'text-blue-600',
-  'CORRELATION ENGINE': 'text-cyan-600',
-  'SYNTHESIZER': 'text-indigo-500'
+  'THE PHYSICIST': 'text-blue-600',
+  'THE HISTORIAN': 'text-cyan-600',
+  'THE DETECTIVE': 'text-indigo-500'
 };
 
 const progressColors = {
-  'PRIMARY ANALYST': 'bg-blue-600',
-  'CORRELATION ENGINE': 'bg-cyan-500',
-  'SYNTHESIZER': 'bg-indigo-500'
+  'THE PHYSICIST': 'bg-blue-600',
+  'THE HISTORIAN': 'bg-cyan-500',
+  'THE DETECTIVE': 'bg-indigo-500'
 };
 
 export const AgentsSection: React.FC = () => {
@@ -27,10 +27,10 @@ export const AgentsSection: React.FC = () => {
           className="mx-auto max-w-3xl text-center mb-16"
         >
           <h2 className="text-3xl font-bold text-slate-900 dark:text-white">
-            Meet the Agents
+            The Trinity: Neuro-Symbolic Intelligence
           </h2>
           <p className="mt-4 text-slate-600 dark:text-slate-400">
-            Chroma-Pilot isn't a single algorithm. It's a coalition of specialized AI agents working in concert to validate findings.
+            Chroma-Pilot isn't a black box. It's a neuro-symbolic system combining three specialized engines that work together to eliminate bias and surface clinical insights.
           </p>
         </motion.div>
         
@@ -78,7 +78,7 @@ export const AgentsSection: React.FC = () => {
                 />
               </div>
               <div className="mt-1 flex justify-between text-[10px] font-mono text-slate-500">
-                <span>{agent.role === 'CORRELATION ENGINE' ? 'NLP RECALL' : agent.role === 'SYNTHESIZER' ? 'READABILITY' : 'ACCURACY'}</span>
+                <span>{agent.role === 'THE HISTORIAN' ? 'CONTEXT ACCURACY' : agent.role === 'THE DETECTIVE' ? 'REASONING ACCURACY' : 'PATHOGENICITY ACCURACY'}</span>
                 <span className="flex items-center">
                   <SimpleCounter 
                     value={agent.accuracy}

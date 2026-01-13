@@ -20,7 +20,7 @@ export const Navigation: React.FC = () => {
   };
   
   const handleLoginClick = () => {
-    navigate('/dashboard');
+    navigate('/login');
   };
   
   return (

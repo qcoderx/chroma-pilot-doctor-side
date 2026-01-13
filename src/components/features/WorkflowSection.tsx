@@ -15,7 +15,7 @@ export const WorkflowSection: React.FC = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
-            From Sample to Diagnosis
+            Clinical Decision-Support Workflow
           </h2>
           <div className="mt-2">
             <ScrambledText 
@@ -23,7 +23,7 @@ export const WorkflowSection: React.FC = () => {
               duration={800}
               className="text-slate-500 dark:text-slate-400 font-body"
             >
-              A streamlined workflow designed for high-throughput clinical environments.
+              From static VCF files to live biological intelligence. Designed for high-throughput clinical environments.
             </ScrambledText>
           </div>
         </motion.div>

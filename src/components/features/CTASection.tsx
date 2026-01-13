@@ -75,10 +75,10 @@ export const CTASection: React.FC = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
-            Ready to modernize your lab?
+            Ready to transform clinical decision-making?
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-600 dark:text-slate-300">
-            Join the network of hospitals using Chroma-Pilot to deliver precision medicine at scale. Request a demo today.
+            Join African research hospitals using Chroma-Pilot to assist clinicians with genomic insights. Request a pilot program demonstration.
           </p>
           
           <motion.form 
@@ -118,7 +118,7 @@ export const CTASection: React.FC = () => {
             viewport={{ once: true }}
             className="mt-4 text-xs text-slate-500 dark:text-slate-400"
           >
-            No credit card required. HIPAA compliant trial environment.
+            Clinical decision-support system. Does not diagnose or prescribe. HIPAA compliant pilot environment.
           </motion.p>
         </motion.div>
       </div>
