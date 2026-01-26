@@ -6,6 +6,9 @@ import { ProtectedRoute } from './src/components/auth/ProtectedRoute';
 import { useLoadingStore } from './src/store/loadingStore';
 import { useAuthStore } from './src/store/authStore';
 
+// Layouts
+import DoctorLayout from './src/components/layouts/DoctorLayout';
+
 // Pages
 import LandingPage from './src/pages/LandingPage';
 import LoginPage from './src/pages/LoginPage';
@@ -64,68 +67,29 @@ const App: React.FC = () => {
       <HashRouter>
         <Routes>
           {/* Public Routes */}
-          <Route path="/" element={<LandingPage />} />
+          <Route path="/landing" element={<LandingPage />} />
           <Route path="/login" element={<LoginPage />} />
           
-          {/* Protected Routes */}
-          <Route path="/dashboard" element={
+          {/* Protected Routes with SideNav Layout */}
+          <Route path="/" element={
             <ProtectedRoute>
-              <DashboardPage />
+              <DoctorLayout />
             </ProtectedRoute>
-          } />
-          
-          <Route path="/patients" element={
-            <ProtectedRoute>
-              <PatientListPage />
-            </ProtectedRoute>
-          } />
-          
-          <Route path="/add-patient" element={
-            <ProtectedRoute>
-              <AddPatientPage />
-            </ProtectedRoute>
-          } />
-          
-          <Route path="/analytics" element={
-            <ProtectedRoute>
-              <AnalyticsPage />
-            </ProtectedRoute>
-          } />
-          
-          {/* Patient-specific routes */}
-          <Route path="/patient/:patientId" element={
-            <ProtectedRoute>
-              <PatientProfilePage />
-            </ProtectedRoute>
-          } />
-          
-          <Route path="/patient/:patientId/pharmacogenomics" element={
-            <ProtectedRoute>
-              <PharmacogenomicsPage />
-            </ProtectedRoute>
-          } />
-          
-          <Route path="/patient/:patientId/risk-assessment" element={
-            <ProtectedRoute>
-              <RiskAssessmentPage />
-            </ProtectedRoute>
-          } />
-          
-          <Route path="/patient/:patientId/diagnosis" element={
-            <ProtectedRoute>
-              <DiagnosisPage />
-            </ProtectedRoute>
-          } />
-          
-          <Route path="/patient/:patientId/timeline" element={
-            <ProtectedRoute>
-              <PatientTimelinePage />
-            </ProtectedRoute>
-          } />
+          }>
+            <Route path="dashboard" element={<DashboardPage />} />
+            <Route path="patients" element={<PatientListPage />} />
+            <Route path="add-patient" element={<AddPatientPage />} />
+            <Route path="analytics" element={<AnalyticsPage />} />
+            <Route path="patient/:patientId" element={<PatientProfilePage />} />
+            <Route path="patient/:patientId/pharmacogenomics" element={<PharmacogenomicsPage />} />
+            <Route path="patient/:patientId/risk-assessment" element={<RiskAssessmentPage />} />
+            <Route path="patient/:patientId/diagnosis" element={<DiagnosisPage />} />
+            <Route path="patient/:patientId/timeline" element={<PatientTimelinePage />} />
+          </Route>
           
           {/* Fallback routes */}
           <Route path="*" element={
-            isAuthenticated ? <Navigate to="/dashboard" replace /> : <Navigate to="/" replace />
+            isAuthenticated ? <Navigate to="/dashboard" replace /> : <Navigate to="/landing" replace />
           } />
         </Routes>
       </HashRouter>

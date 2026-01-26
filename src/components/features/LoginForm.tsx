@@ -183,7 +183,7 @@ export const LoginForm: React.FC = () => {
         <p className="text-sm text-slate-500 dark:text-slate-400">
           Don't have access?{' '}
           <Link 
-            to="/" 
+            to="/landing" 
             className="font-medium text-blue-600 hover:text-blue-700 hover:underline transition-colors"
           >
             Request a Demo

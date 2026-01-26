@@ -55,9 +55,7 @@ const DashboardPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white transition-colors duration-200">
-      <DashboardHeader />
-      
-      <main className="flex-1 px-4 sm:px-6 lg:px-8 py-8 w-full max-w-7xl mx-auto">
+      <main className="w-full">
         {/* Page Heading */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -65,7 +63,7 @@ const DashboardPage: React.FC = () => {
           transition={{ duration: 0.3 }}
           className="mb-8"
         >
-          <h1 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white mb-2">
+          <h1 className="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white mb-2">
             Dashboard Overview
           </h1>
           <p className="text-slate-600 dark:text-slate-400">

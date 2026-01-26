@@ -21,20 +21,6 @@ export const DashboardHeader: React.FC = () => {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-3">
         <div className="flex items-center gap-8">
-          {/* Logo */}
-          <motion.div 
-            className="flex items-center gap-3 cursor-pointer"
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.2 }}
-            onClick={() => navigate('/dashboard')}
-          >
-            <img 
-              src={logoImage} 
-              alt="Chroma-Pilot" 
-              className="h-12 w-auto"
-            />
-          </motion.div>
-          
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-1">
             <Button 
